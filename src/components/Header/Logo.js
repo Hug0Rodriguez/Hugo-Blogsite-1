@@ -6,7 +6,7 @@ const Logo = () => {
     return (
         <Link href="/" className="flex items-center text-dark">
             {" "}
-            <div className="w-16 rounded-full overflow-hidden border border-solid border-dark ">
+            <div className="w-16 rounded-full overflow-hidden border border-solid border-dark mr-4">
                 <Image
                     src={profileImg}
                     alt="codebucks"
