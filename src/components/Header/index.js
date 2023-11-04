@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { LinkedinIcon } from "../Icons";
+import {
+    DribbbleIcon,
+    GithubIcon,
+    LinkedinIcon,
+    SunIcon,
+    TwitterIcon,
+} from "../Icons";
 const Header = () => {
     return (
         <header className="w-full p-4 px-10 flex items-center justify-between">
@@ -15,15 +21,35 @@ const Header = () => {
                 <Link href="/contact" className="mr-2">
                     Contact
                 </Link>
-                <button>T</button>
+                <button>
+                    <SunIcon />
+                </button>
             </nav>
             <div>
-                <a href="http://example.com">
-                    <LinkedinIcon />
+                <a
+                    href="http://example.com"
+                    className="inline-block w-6 h-6 mr-4"
+                >
+                    <LinkedinIcon className="hover:scale-125 transition-all ease duration-200" />
                 </a>
-                <a href="http://example.com">Twitter</a>
-                <a href="http://example.com">Github</a>
-                <a href="http://example.com">CodeBucks</a>
+                <a
+                    href="http://example.com"
+                    className="inline-block w-6 h-6 mr-4"
+                >
+                    <TwitterIcon className="hover:scale-125 transition-all ease duration-200" />
+                </a>
+                <a
+                    href="http://example.com"
+                    className="inline-block w-6 h-6 mr-4"
+                >
+                    <GithubIcon className="hover:scale-125 transition-all ease duration-200" />
+                </a>
+                <a
+                    href="http://example.com"
+                    className="inline-block w-6 h-6 mr-4"
+                >
+                    <DribbbleIcon className="hover:scale-125 transition-all ease duration-200" />
+                </a>
             </div>
         </header>
     );
