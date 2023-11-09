@@ -8,7 +8,7 @@ const Blog = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        publishAt: {
+        publishedAt: {
             type: "date",
             required: true,
         },
@@ -20,7 +20,7 @@ const Blog = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        image: { type: string, required: true },
+        image: { type: "string", required: true },
         isPublished: {
             type: "boolean",
             default: true,
@@ -30,8 +30,14 @@ const Blog = defineDocumentType(() => ({
             required: true,
         },
         tags: {
-            type: "string",
+            type: "list",
             of: { type: "string" },
+        },
+    },
+    computuedFields: {
+        url: {
+            type: "string",
+            resolve: (doc) => `/blogs/${doc._raw.flattenedPath}`,
         },
     },
 }));
@@ -39,4 +45,5 @@ const Blog = defineDocumentType(() => ({
 export default makeSource({
     /* options */
     contentDirPath: "content",
+    documentTypes: [Blog],
 });
