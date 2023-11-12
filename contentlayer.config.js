@@ -20,7 +20,7 @@ const Blog = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        image: { type: "string", required: true },
+        image: { type: "image" },
         isPublished: {
             type: "boolean",
             default: true,
@@ -34,7 +34,7 @@ const Blog = defineDocumentType(() => ({
             of: { type: "string" },
         },
     },
-    computuedFields: {
+    computedFields: {
         url: {
             type: "string",
             resolve: (doc) => `/blogs/${doc._raw.flattenedPath}`,
