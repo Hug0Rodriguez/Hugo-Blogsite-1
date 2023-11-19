@@ -6,7 +6,7 @@ import Tag from "../Elements/Tag";
 
 const HomeCoverSection = ({ blogs }) => {
     const sortedBlogs = sortBlogs(blogs);
-    const blog = sortedBlogs[0];
+    const blog = sortedBlogs[1];
     return (
         <div className="w-full inline-block">
             <article className="flex flex-col items-start justify-end mx-5 sm:mx-10 relative h-[60vh] sm:h-[85vh]">
@@ -22,13 +22,24 @@ const HomeCoverSection = ({ blogs }) => {
                     fill
                     className="w-full h-full object-center object-cover rounded-3xl -z-10 "
                 />
-                <div className="w-3/4 p-16 flex-col items-start justify-center z-0 text-light">
-                    <Link href={`/categories/${blog.tags[0]}`}>
-                        {blog.tags[0]}
+                <div className="w-3/4 p-16 flex-col items-start justify-center z-0 text-light ">
+                    <Tag
+                        link={`/categories/${blog.tags[0]}`}
+                        name={blog.tags[0]}
+                    />
+                    <Link href={blog.url} className="mt-6">
+                        <h1 className="font-bold capitalize text-4xl">
+                            <span
+                                className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px]
+                                hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500"
+                            >
+                                {blog.title}
+                            </span>
+                        </h1>
                     </Link>
-                    <Tag />
-                    <h1>{blog.title}</h1>
-                    <p>{blog.description}</p>
+                    <p className="inline-block mt-4 text-lg font-in">
+                        {blog.description}
+                    </p>
                 </div>
             </article>
         </div>
